@@ -25,7 +25,7 @@
     <span>Book is busy by </span> <span th:text="${owner.getFIO()}">Person Name</span>
 
     <form th:method="PATCH" th:action="@{/books/{id}/release(id=${book.getId()})}">
-        <input type="submit" value=""/>
+        <input type="submit" value="release book"/>
     </form>
 </div>
 
