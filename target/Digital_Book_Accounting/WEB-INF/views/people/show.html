@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Information about Person</title>
+</head>
+<body>
+<h3>Information about person</h3>
+<a th:text="${person.getId()}">id</a>
+<br/>
+<a th:text="${person.getFIO()}">id</a>
+<br/>
+<a th:text="${person.getDateOfBirth()}">id</a>
+<br/>
+<br/>
+<a th:href="@{/people/{id}/edit(id=${person.getId()})}">Edit person's data</a>
+<br/>
+
+<form th:method="DELETE" th:object="${person}" th:action="@{/people/{id}/delete(id=${person.getId()})}">
+    <br/>
+    <input type="submit" value="Delete person"/>
+</form>
+<br/>
+<div th:if="${listOfBook==null}">
+    <a>Person hasn't got any book yet.</a>
+</div>
+<div th:if="${!listOfBook.isEmpty()}">
+    <b>Books:</b>
+    <br/>
+    <table th:each="book : ${listOfBook}">
+        <tr th:text="${book}"/>
+    </table>
+</div>
+</body>
+</html>
